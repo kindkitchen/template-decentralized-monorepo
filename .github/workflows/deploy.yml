@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: Repository environment
+        type: environment
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.env }}
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: extractions/setup-just@v3
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: canary
+      - uses: actions/setup-node@v4
+      - run: just install
+      - run: just build
+      - run: just v
+      - run: echo TODO - modify for your requirements
