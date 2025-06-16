@@ -1,4 +1,4 @@
-# 0.0.0
+# 0.1.0
 
 ## `VERSION.MD` the source of project's version with optional description
 
@@ -24,3 +24,7 @@
      simple `just` - for details see
      [Justfile documentation](https://just.systems/man/en/))_
    - `install`
+
+## `.github/workflows/deploy.yml`
+
+> The example with pre-configured common stuff for deploy.
