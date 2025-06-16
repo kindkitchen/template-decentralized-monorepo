@@ -42,6 +42,8 @@ _bump:
 install:
     deno install --allow-scripts
 
+build: parallel
+
 _a:
     echo A
 

@@ -1,4 +1,4 @@
-# 0.1.0
+# 0.1.1
 
 ## `VERSION.MD` the source of project's version with optional description
 
