@@ -20,7 +20,9 @@ jobs:
         with:
           deno-version: canary
       - uses: actions/setup-node@v4
+      - uses: kindkitchen/genv@v1.0.0
+        with:
+          vars_obj: ${{ toJson(vars) }}
+          secrets_obj: ${{ toJson(secrets) }}
       - run: just install
       - run: just build
-      - run: just v
-      - run: echo TODO - modify for your requirements
