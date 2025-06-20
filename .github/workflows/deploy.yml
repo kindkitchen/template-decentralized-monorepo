@@ -24,5 +24,4 @@ jobs:
         with:
           vars_obj: ${{ toJson(vars) }}
           secrets_obj: ${{ toJson(secrets) }}
-      - run: just install
       - run: just build

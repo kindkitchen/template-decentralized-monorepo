@@ -1,0 +1,18 @@
+{
+  "workspace": [
+    "domain",
+    "app/api",
+    "lib/config"
+  ],
+  "exclude": [
+    "app/site"
+  ],
+  "unstable": [
+    "kv",
+    "cron",
+    "fmt-component",
+    "fmt-sql"
+  ],
+  "nodeModulesDir": "auto",
+  "version": "0.2.0"
+}

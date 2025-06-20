@@ -2,5 +2,6 @@
   "cSpell.words": [
     "denoland",
     "JUSTFILE"
-  ]
+  ],
+  "deno.disablePaths": ["app/site"]
 }

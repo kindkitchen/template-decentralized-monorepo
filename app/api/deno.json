@@ -1,0 +1,7 @@
+{
+  "name": "@app/api",
+  "exports": {
+    ".": "./main.ts"
+  },
+  "version": "0.2.0"
+}

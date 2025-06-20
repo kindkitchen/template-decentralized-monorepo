@@ -1,6 +1,23 @@
-# 0.1.1
+# 0.2.0
 
-## `VERSION.MD` the source of project's version with optional description
+## `.github/workflows/deploy.yml`
+
+> The example with pre-configured common stuff for deploy.
+
+## `~/deno.json` the root of the project
+
+> So this is the deno workspace feature
+
+## `domain` => `@/domain` the domain logic
+
+> As possible any knowledge about implementation details. Simply export nearly
+> business ready types etc.
+
+## `app/*` => `@app/*` applications
+
+## `lib/*` => `@lib/*` libs
+
+## `VERSION.md` the source of project's version with optional description
 
 > The only requirement for this file - the first line should contain valid
 > semver version _(possibly prefixed with markdown heading... this is actually
@@ -12,7 +29,7 @@
 > default ones)_
 
 1. `just v` - simply display current version of the project _(declared in
-   VERSION.MD first line)_
+   VERSION.md first line)_
 2. `just bump` - update version in all declared `*.json` `.` `version` files
    - _the most common candidate is `package.json`_
    - but in any case - the paths to these files is read from
@@ -24,7 +41,3 @@
      simple `just` - for details see
      [Justfile documentation](https://just.systems/man/en/))_
    - `install`
-
-## `.github/workflows/deploy.yml`
-
-> The example with pre-configured common stuff for deploy.
