@@ -1,7 +1,4 @@
 {
-  "name": "@app/api",
-  "exports": {
-    ".": "./main.ts"
-  },
+  "workspace": ["lib/config", "lib/util"],
   "version": "0.2.0"
 }
