@@ -1,7 +1,8 @@
 {
-  "name": "@app/api",
-  "exports": {
-    ".": "./main.ts"
-  },
-  "version": "0.2.0"
+  "workspace": [
+    "domain",
+    "lib/config",
+    "lib/util"
+  ],
+  "version": "0.3.0"
 }

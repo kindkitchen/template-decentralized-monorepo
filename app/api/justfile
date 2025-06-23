@@ -1,0 +1,9 @@
+import '../../JUSTFILE'
+
+ROOT := `cd ../.. && pwd`
+
+[script('bash')]
+home:
+    cd {{ ROOT }}
+    OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
+    $OPEN_FOLDER_IN_EDITOR .

@@ -24,4 +24,3 @@ jobs:
         with:
           vars_obj: ${{ toJson(vars) }}
           secrets_obj: ${{ toJson(secrets) }}
-      - run: just build
