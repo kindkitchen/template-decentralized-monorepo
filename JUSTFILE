@@ -28,3 +28,16 @@ api *args="":
     cd app/api
     OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
     {{ if args == "" { "$OPEN_FOLDER_IN_EDITOR ." } else { args } }}
+
+# This is monkey-patch. The goal is to replace links in lib with cp of original files, thought it is only may become handy
+[script('bash')]
+_lib_links_to_files app:
+    cd {{ ROOT }}
+    app="{{ app }}"
+    mkdir __lib__
+    ls "app/$app/lib" |
+        while read lib;
+        do mv "package/$lib" "__lib__/$lib"
+        done;
+    rm -fr "app/$app/lib"
+    mv "__lib__" "app/$app/lib"

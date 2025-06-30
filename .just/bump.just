@@ -2,11 +2,12 @@ ROOT := `cd ../.. && pwd`
 
 _:
 
-JSON_FILES_WITH_VERSION := 'domain/deno.json app/api/deno.json package/config/deno.json package/util/deno.json'
+export JSON_FILES_WITH_VERSION := 'app/api/deno.json package/util/deno.json package/config/deno.json'
 
 bump: _pre_bump _bump
 
 @_pre_bump:
+    cd {{ ROOT }}
     echo
     echo  This version will be used: {{ BOLD + BLUE }}$(just v){{ NORMAL }}
     echo "{{ ITALIC }}(to change - modify first line in ./VERSION.md){{ NORMAL }}"
@@ -15,6 +16,7 @@ bump: _pre_bump _bump
 [confirm('Ok? (y/N)')]
 [script('bash')]
 _bump:
+    cd {{ ROOT }}
     VERSION=$(just v)
     if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
       just printError "The first line of ./VERSION.md should be valid semver version format (markdown heading allowed): $VERSION"

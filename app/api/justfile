@@ -2,8 +2,17 @@ import '../../JUSTFILE'
 
 ROOT := `cd ../.. && pwd`
 
+alias i := install
+
+_:
+    just --list
+
 [script('bash')]
 home:
     cd {{ ROOT }}
     OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
     $OPEN_FOLDER_IN_EDITOR .
+
+[script('bash')]
+install:
+    deno install --allow-scripts
