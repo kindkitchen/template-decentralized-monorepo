@@ -1,4 +1,4 @@
-# 0.4.0
+# 0.4.1
 
 ## Differences with prev (v0.3.0)
 
