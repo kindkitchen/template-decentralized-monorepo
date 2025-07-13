@@ -1,15 +1,21 @@
 name: Deploy
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      env:
+      environment:
         description: Repository environment
-        type: environment
+        type: string
+        required: true
+      tag:
+        description: Technically it can be tag or branch
+        type: string
+        required: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.env }}
+    environment: ${{ inputs.environment }}
     permissions:
       id-token: write
       contents: write
@@ -24,3 +30,5 @@ jobs:
         with:
           vars_obj: ${{ toJson(vars) }}
           secrets_obj: ${{ toJson(secrets) }}
+          dotenv_content: |
+            TAG: ${{ inputs.tag }}
