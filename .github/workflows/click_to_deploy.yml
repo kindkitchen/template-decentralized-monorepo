@@ -9,6 +9,9 @@ on:
 
 jobs:
   call_deploy:
+    permissions:
+      id-token: write
+      contents: write
     uses: ./.github/workflows/deploy.yml
     with:
       environment: ${{ inputs.gh_environment }}
