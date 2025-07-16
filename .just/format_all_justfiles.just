@@ -8,11 +8,17 @@ format_all_justfiles:
     just _format_all_justfiles .just
     ls app |
       while read dir;
-      do eval "just _format_all_justfiles app/$dir";
+      do
+        if [[ -d $dir ]]; then
+          eval "just _format_all_justfiles app/$dir";
+        fi
       done
     ls package |
       while read dir;
-      do eval "just _format_all_justfiles package/$dir";
+      do
+        if [[ -d $dir ]]; then
+          eval "just _format_all_justfiles package/$dir";
+        fi
       done
     just _format_all_justfiles .
 

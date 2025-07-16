@@ -2,7 +2,7 @@ ROOT := `cd ../.. && pwd`
 
 _:
 
-export JSON_FILES_WITH_VERSION := 'app/api/deno.json package/util/deno.json package/config/deno.json'
+export JSON_FILES_WITH_VERSION := 'app/rest/deno.json'
 
 bump: _pre_bump _bump
 
