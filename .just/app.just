@@ -4,7 +4,9 @@ _:
 
 # just app deno init --npm create vue
 [script('bash')]
-app *args="":
+app target="" *args="":
     cd {{ ROOT }}
     cd app
-    {{ if args == "" { "ls | xargs just printInfo" } else { args } }}
+    target={{ target }}
+    args={{ args }}
+    {{ if target == "" { "just printInfo 'You can run any command in context of one of these roots'; tree -dl -L 1 || ls -1" } else { 'cd $target && $args' } }}

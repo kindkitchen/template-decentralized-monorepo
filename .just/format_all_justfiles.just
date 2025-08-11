@@ -30,7 +30,7 @@ _format_all_justfiles dir:
       grep -Ei '\.just$|justfile$' |
       awk '{
         print "just -f",
-          $0,
+          $1,
           "--unstable",
           "--fmt"
         }' |

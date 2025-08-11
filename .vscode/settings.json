@@ -5,5 +5,7 @@
     "igorjs",
     "JUSTFILE",
     "justfiles"
-  ]
+  ],
+  "explorer.sortOrder": "mixed",
+  "explorer.excludeGitIgnore": true
 }

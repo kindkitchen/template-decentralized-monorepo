@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       gh_environment:
-          type: environment
-          description: Repository environment
+        type: environment
+        description: Repository environment
 
 jobs:
   call_deploy:

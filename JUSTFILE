@@ -21,6 +21,11 @@ _______________:
 [script('bash')]
 fmt:
     just format_all_justfiles
+    deno fmt --ignore=./{app,package}/
+
+[script('bash')]
+check *args:
+    COMMAND="deno check {{ args }}"
 
 [script('bash')]
 rest *args="":
