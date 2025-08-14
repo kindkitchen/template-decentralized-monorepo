@@ -32,7 +32,7 @@ rest *args="":
     cd {{ ROOT }}
     cd app/rest
     OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
-    {{ if args == "" { "$OPEN_FOLDER_IN_EDITOR ." } else { args } }}
+    {{ if args == "cd" { "$OPEN_FOLDER_IN_EDITOR ." } else { args } }}
 
 # This is monkey-patch. The goal is to replace links in lib with cp of original files, thought it is only may become handy
 [script('bash')]

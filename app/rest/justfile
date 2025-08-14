@@ -8,10 +8,10 @@ _:
     just --list
 
 [script('bash')]
-home:
+home *args="":
     cd {{ ROOT }}
     OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
-    $OPEN_FOLDER_IN_EDITOR .
+    {{ if args == "cd" { "$OPEN_FOLDER_IN_EDITOR ." } else { args } }}
 
 [script('bash')]
 install:
