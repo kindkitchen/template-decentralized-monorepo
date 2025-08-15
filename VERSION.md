@@ -1,4 +1,4 @@
-# 0.3.0
+# 0.3.1
 
 ## Important!
 
@@ -21,8 +21,6 @@ First of all - simply the little convention rules should be used:
    library first style.**
 2. The code, that pretty straightforward related to runnable aspect - **should
    not be in this folder**
-3. The `lib` folder, where will be linked any sharable packages, from this
-   `core` folder should be always at `../lib` relative path access
 
 ## So benefits:
 

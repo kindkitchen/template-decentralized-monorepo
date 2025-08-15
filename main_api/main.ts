@@ -1,8 +1,8 @@
-import { hello_world_handler } from "./core/hello_world_handler.ts";
+import { whoami_handler } from "./core/whoami_handler.ts";
 
 Deno.serve((req) => {
   if (new URL(req.url).pathname === "/") {
-    return hello_world_handler();
+    return whoami_handler(req);
   }
 
   return new Response("Not found", { status: 404 });

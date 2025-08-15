@@ -6,4 +6,4 @@ _:
 app_lib_unlink app lib alias="":
     cd {{ ROOT }}
     alias={{ if alias == "" { lib } else { alias } }}
-    rm {{ app }}/lib/$alias
+    rm {{ app }}/$alias

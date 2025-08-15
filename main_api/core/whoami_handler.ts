@@ -1,4 +1,4 @@
-import { User } from "../lib/domain/User.ts";
+import { User } from "../domain/User.ts";
 
 export const whoami_handler = async (_req: Request): Promise<Response> => {
   const data: User | null = null;

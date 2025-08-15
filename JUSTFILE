@@ -35,19 +35,6 @@ main_ui *args="":
 
 alias ui := main_ui
 
-# This is monkey-patch. The goal is to replace links in lib with cp of original files, thought it is only may become handy
-[script('bash')]
-_lib_links_to_files app:
-    cd {{ ROOT }}
-    app="{{ app }}"
-    mkdir __lib__
-    ls "$app/lib" |
-        while read lib;
-        do mv "$lib" "__lib__/$lib"
-        done;
-    rm -fr "$app/lib"
-    mv "__lib__" "app/$app/lib"
-
 [script('bash')]
 fmt:
     just format_all_justfiles

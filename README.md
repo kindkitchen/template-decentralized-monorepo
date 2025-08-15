@@ -36,5 +36,11 @@ libs only.
 - explore example apps for more details
 - try to write most code in `app/core/*` directory
 - then you will be able to import it in some another app under the
-  `lib/<exported app>/*`
+  `<exported app>/*`
 - again, explore dependencies between example apps
+
+# TODO:
+
+Among many todos the first one - sometimes it is actual to replace links with
+copies of the source folders for some deployment systems for example. Will be
+cool to have simple task, command for this purpose.

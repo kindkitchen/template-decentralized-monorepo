@@ -1,4 +1,4 @@
-import { whoami_handler } from "./lib/api/whoami_handler.ts";
+import { whoami_handler } from "./api/whoami_handler.ts";
 
 const html = String.raw;
 const page = html`
