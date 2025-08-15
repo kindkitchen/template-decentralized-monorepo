@@ -1,4 +1,4 @@
-ROOT := `cd ../.. && pwd`
+ROOT := `cd .. && pwd`
 
 _:
 

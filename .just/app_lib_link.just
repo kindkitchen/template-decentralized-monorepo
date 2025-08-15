@@ -1,9 +1,10 @@
-ROOT := `cd ../.. && pwd`
+ROOT := `cd .. && pwd`
 
 _:
 
 [script('bash')]
-app_lib_link app lib:
+app_lib_link app lib alias="":
     cd {{ ROOT }}
-    [ -e app/{{ app }}/lib ] || mkdir app/{{ app }}/lib
-    ln -sr package/{{ lib }}/ app/{{ app }}/lib/{{ lib }}
+    [ -e {{ app }}/lib ] || mkdir {{ app }}/lib
+    alias={{ if alias == "" { lib } else { alias } }}
+    ln -sr {{ lib }}/core {{ app }}/lib/$alias

@@ -1,12 +1,14 @@
-ROOT := `cd ../.. && pwd`
+import './const.just'
+
+ROOT := `cd .. && pwd`
 
 _:
 
-# just app deno init --npm create vue
 [script('bash')]
 app target="" *args="":
     cd {{ ROOT }}
-    cd app
     target={{ target }}
-    args={{ args }}
-    {{ if target == "" { "just printInfo 'You can run any command in context of one of these roots'; tree -dl -L 1 || ls -1" } else { 'cd $target && $args' } }}
+    OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
+    args="{{ if args == 'cd' { '$OPEN_FOLDER_IN_EDITOR .' } else { args } }}"
+    {{ if target == "" { "just printInfo 'You can run any command in context of one of these roots'; tree -dl -L 1 || ls -1" } else { 'cd $target' } }}
+    $args

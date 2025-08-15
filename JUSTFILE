@@ -10,6 +10,7 @@ import '.just/app_lib_link.just'
 import '.just/app_lib_unlink.just'
 import '.just/app.just'
 import '.just/format_all_justfiles.just'
+import '.just/home.just'
 
 alias v := version
 
@@ -19,20 +20,20 @@ _______________:
     just --list
 
 [script('bash')]
-fmt:
-    just format_all_justfiles
-    deno fmt --ignore=./{app,package}/
-
-[script('bash')]
 check *args:
     COMMAND="deno check {{ args }}"
 
 [script('bash')]
-rest *args="":
-    cd {{ ROOT }}
-    cd app/rest
-    OPEN_FOLDER_IN_EDITOR="{{ OPEN_FOLDER_IN_EDITOR }}"
-    {{ if args == "cd" { "$OPEN_FOLDER_IN_EDITOR ." } else { args } }}
+main_api *args="":
+    just app main_api {{ args }}
+
+alias api := main_api
+
+[script('bash')]
+main_ui *args="":
+    just app main_ui {{ args }}
+
+alias ui := main_ui
 
 # This is monkey-patch. The goal is to replace links in lib with cp of original files, thought it is only may become handy
 [script('bash')]
@@ -40,9 +41,15 @@ _lib_links_to_files app:
     cd {{ ROOT }}
     app="{{ app }}"
     mkdir __lib__
-    ls "app/$app/lib" |
+    ls "$app/lib" |
         while read lib;
-        do mv "package/$lib" "__lib__/$lib"
+        do mv "$lib" "__lib__/$lib"
         done;
-    rm -fr "app/$app/lib"
+    rm -fr "$app/lib"
     mv "__lib__" "app/$app/lib"
+
+[script('bash')]
+fmt:
+    just format_all_justfiles
+    just ui just fmt
+    just api just fmt

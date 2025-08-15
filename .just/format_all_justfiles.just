@@ -1,23 +1,15 @@
-ROOT := `cd ../.. && pwd`
+ROOT := `cd .. && pwd`
 
 _:
 
 [script('bash')]
 format_all_justfiles:
     cd {{ ROOT }}
-    just _format_all_justfiles .just
-    ls app |
+    ls |
       while read dir;
       do
         if [[ -d $dir ]]; then
-          eval "just _format_all_justfiles app/$dir";
-        fi
-      done
-    ls package |
-      while read dir;
-      do
-        if [[ -d $dir ]]; then
-          eval "just _format_all_justfiles package/$dir";
+          eval "just _format_all_justfiles $dir";
         fi
       done
     just _format_all_justfiles .

@@ -1,8 +1,9 @@
-ROOT := `cd ../.. && pwd`
+ROOT := `cd .. && pwd`
 
 _:
 
 [script('bash')]
-app_lib_unlink app lib:
+app_lib_unlink app lib alias="":
     cd {{ ROOT }}
-    rm app/{{ app }}/lib/{{ lib }}
+    alias={{ if alias == "" { lib } else { alias } }}
+    rm {{ app }}/lib/$alias

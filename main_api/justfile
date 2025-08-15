@@ -1,0 +1,19 @@
+import '../JUSTFILE'
+
+ROOT := `cd .. && pwd`
+
+alias i := install
+
+_:
+    just --list
+
+fmt:
+    deno fmt
+
+[script('bash')]
+install:
+    deno install --allow-scripts
+
+[script("bash")]
+start:
+    PORT=3000 deno run -A main.ts
