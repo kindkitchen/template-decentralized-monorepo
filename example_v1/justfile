@@ -21,3 +21,12 @@ start PORT="3000":
 
 gql:
     deno run --allow-all npm:@graphql-codegen/cli/graphql-codegen-esm --config codegen/config.ts
+
+[script("bash")]
+test pattern="":
+    PATTERN="{{ pattern }}"
+    if [ -n "$PATTERN" ]; then
+        deno test **/*"$PATTERN"*
+    else
+        find . -type f -not -path "./node_modules/*" \( -name "*test.ts" -o -name "*test.tsx" \)
+    fi
