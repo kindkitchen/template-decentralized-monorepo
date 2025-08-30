@@ -15,5 +15,6 @@ install:
     deno install --allow-scripts
 
 [script("bash")]
-start:
-    PORT=3000 deno run -A main.ts
+start PORT="3000":
+    PORT="{{ PORT }}" \
+    deno run -A main.ts

@@ -4,7 +4,7 @@ _:
 
 # TODO: complete with your paths to .version json file splitting via space
 
-export JSON_FILES_WITH_VERSION := 'main_api/deno.json main_ui/deno.json'
+export JSON_FILES_WITH_VERSION := 'example_v1/deno.json example_codegen/deno.json'
 
 bump: _pre_bump _bump
 

@@ -1,0 +1,23 @@
+import '../JUSTFILE'
+
+ROOT := `cd .. && pwd`
+
+alias i := install
+
+_:
+    just --list
+
+fmt:
+    deno fmt
+
+[script('bash')]
+install:
+    deno install --allow-scripts
+
+[script("bash")]
+start PORT="3000":
+    PORT="{{ PORT }}" \
+    deno run -A main.ts
+
+gql:
+    deno run --allow-all npm:@graphql-codegen/cli/graphql-codegen-esm --config codegen/config.ts

@@ -24,19 +24,15 @@ check *args:
     COMMAND="deno check {{ args }}"
 
 [script('bash')]
-main_api *args="":
-    just app main_api {{ args }}
-
-alias api := main_api
-
-[script('bash')]
-main_ui *args="":
-    just app main_ui {{ args }}
-
-alias ui := main_ui
-
-[script('bash')]
 fmt:
     just format_all_justfiles
     just ui just fmt
     just api just fmt
+
+[script('bash')]
+example_codegen *args="":
+    just app example_codegen {{ args }}
+
+[script('bash')]
+example_v1 *args="":
+    just app example_v1 {{ args }}

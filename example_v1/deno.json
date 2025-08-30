@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@apollo/server": "npm:@apollo/server@^5.0.0",
+    "@as-integrations/cloudflare-workers": "npm:@as-integrations/cloudflare-workers@^1.1.1",
+    "@graphql-codegen/cli": "npm:@graphql-codegen/cli@^5.0.7",
+    "@graphql-codegen/typescript-resolvers": "npm:@graphql-codegen/typescript-resolvers@^4.5.1",
+    "effect": "npm:effect@^3.17.9"
+  },
+  "version": "0.3.2"
+}
