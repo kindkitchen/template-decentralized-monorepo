@@ -1,0 +1,9 @@
+import '../JUSTFILE'
+
+ROOT := `cd .. && pwd`
+
+_:
+    just --list
+
+fmt:
+    deno fmt

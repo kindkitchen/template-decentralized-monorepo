@@ -6,7 +6,8 @@
     "npm:@graphql-codegen/cli@*": "5.0.7_graphql@16.11.0",
     "npm:@graphql-codegen/cli@^5.0.7": "5.0.7_graphql@16.11.0",
     "npm:@graphql-codegen/typescript-resolvers@^4.5.1": "4.5.1_graphql@16.11.0",
-    "npm:effect@^3.17.9": "3.17.9"
+    "npm:effect@^3.17.9": "3.17.9",
+    "npm:graphql@^16.11.0": "16.11.0"
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -2523,7 +2524,8 @@
       "npm:@as-integrations/cloudflare-workers@^1.1.1",
       "npm:@graphql-codegen/cli@^5.0.7",
       "npm:@graphql-codegen/typescript-resolvers@^4.5.1",
-      "npm:effect@^3.17.9"
+      "npm:effect@^3.17.9",
+      "npm:graphql@^16.11.0"
     ]
   }
 }

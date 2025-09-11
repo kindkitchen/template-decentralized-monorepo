@@ -1,11 +1,11 @@
 import { ApolloServer } from "@apollo/server";
 import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
-import typeDefs from "./codegen/schema.gql" with { type: "text" };
+import typeDefs from "./core/schema.gql" with { type: "text" };
 // @ts-types="@as-integrations/cloudflare-workers/src/index.ts"
 import {
   startServerAndCreateCloudflareWorkersHandler,
 } from "@as-integrations/cloudflare-workers";
-import { GqlApiCtx } from "./codegen/GqlApiCtx.ts";
+import { GqlApiCtx } from "./core/GqlApiCtx.ts";
 
 const apollo = new ApolloServer<GqlApiCtx>({
   typeDefs,
