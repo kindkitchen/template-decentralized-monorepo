@@ -26,8 +26,8 @@ check *args:
 [script('bash')]
 fmt:
     just format_all_justfiles
-    just ui just fmt
-    just api just fmt
+    just example_v1 just fmt
+    just example_codegen just fmt
 
 [script('bash')]
 example_codegen *args="":
