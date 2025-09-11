@@ -13,6 +13,8 @@ import '.just/format_all_justfiles.just'
 import '.just/home.just'
 
 alias v := version
+alias v1 := example_v1
+alias ui := example_ui
 
 ROOT := justfile_directory()
 
@@ -26,7 +28,8 @@ check *args:
 [script('bash')]
 fmt:
     just format_all_justfiles
-    just example_v1 just fmt
+    just v1 just fmt
+    just ui just fmt
     just example_codegen just fmt
 
 [script('bash')]
@@ -36,3 +39,7 @@ example_codegen *args="":
 [script('bash')]
 example_v1 *args="":
     just app example_v1 {{ args }}
+
+[script('bash')]
+example_ui *args="":
+    just app example_ui {{ args }}

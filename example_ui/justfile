@@ -1,0 +1,28 @@
+import '../JUSTFILE'
+
+ROOT := `cd .. && pwd`
+
+alias i := install
+
+_:
+    just --list
+
+fmt:
+
+[script('bash')]
+install:
+    deno install --allow-scripts
+
+[script("bash")]
+start PORT="3000":
+    PORT="{{ PORT }}" \
+    deno run -A main.ts
+
+[script("bash")]
+test pattern="":
+    PATTERN="{{ pattern }}"
+    if [ -n "$PATTERN" ]; then
+        deno test **/*"$PATTERN"*
+    else
+        find . -type f -not -path "./node_modules/*" \( -name "*test.ts" -o -name "*test.tsx" \)
+    fi

@@ -88,16 +88,32 @@ So we have such folder structure:
     - And so your tree will become:
       ```
       .
-      ├── codegen
-      │   ├── config.ts
-      │   ├── GqlApiCtx.ts
-      │   ├── out_type_defs.ts
-      │   └── schema.gql
-      ├── deno.json
-      ├── deno.lock
-      ├── example_codegen -> ../example_codegen/core
-      ├── justfile
-      └── main.ts
+      ├── example_codegen
+      │   ├── core
+      │   │   └── Query.gql
+      │   ├── deno.json
+      │   ├── justfile
+      │   └── main.ts
+      ├── example_ui
+      │   ├── justfile
+      │   └── v1 -> ../example_v1/core
+      ├── example_v1
+      │   ├── codegen
+      │   │   └── config.ts
+      │   ├── core
+      │   │   ├── GqlApiCtx.ts
+      │   │   ├── out_type_defs.ts
+      │   │   └── schema.gql
+      │   ├── deno.json
+      │   ├── deno.lock
+      │   ├── example_codegen -> ../example_codegen/core
+      │   ├── justfile
+      │   └── main.ts
+      ├── JUSTFILE
+      ├── node_modules
+      │   └── create-vite -> .deno/create-vite@7.1.1/node_modules/create-vite
+      ├── README.md
+      └── VERSION.md
       ```
 11. **And in such way you can quickly change your root and focus on this
     application**
