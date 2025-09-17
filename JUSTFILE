@@ -11,6 +11,8 @@ import '.just/app_lib_unlink.just'
 import '.just/app.just'
 import '.just/format_all_justfiles.just'
 import '.just/home.just'
+import '.just/deno_test.just'
+import '.just/git_add_A_git_commit.just'
 
 alias v := version
 
@@ -20,14 +22,5 @@ _______________:
     just --list
 
 [script('bash')]
-check *args:
-    COMMAND="deno check {{ args }}"
-
-[script('bash')]
 fmt:
     just format_all_justfiles
-    just api just fmt
-
-[script('bash')]
-api *args="":
-    just app api {{ args }}
