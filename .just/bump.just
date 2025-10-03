@@ -1,10 +1,10 @@
-ROOT := `cd .. && pwd`
+##########################################################################################
+# Read version from VERSION.md and populate across all json files,
+# path to which should be declared in constant <JSON_FILES_WITH_VERSION>
+##########################################################################################
+
 
 _:
-
-# TODO: complete with your paths to .version json file splitting via space
-
-export JSON_FILES_WITH_VERSION := ''
 
 bump: _pre_bump _bump
 

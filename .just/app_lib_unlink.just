@@ -1,4 +1,7 @@
-ROOT := `cd .. && pwd`
+##########################################################################################
+# Simply remove link of the lib from some member.
+##########################################################################################
+
 
 _:
 
@@ -6,4 +9,4 @@ _:
 app_lib_unlink app lib alias="":
     cd {{ ROOT }}
     alias={{ if alias == "" { lib } else { alias } }}
-    rm {{ app }}/$alias
+    rm {{ app }}/src/$alias
