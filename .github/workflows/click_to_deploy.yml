@@ -1,0 +1,19 @@
+name: 🚀 Click to deploy!
+
+on:
+  workflow_dispatch:
+    inputs:
+      gh_environment:
+        type: environment
+        description: Repository environment
+
+jobs:
+  call_deploy:
+    permissions:
+      id-token: write
+      contents: write
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: ${{ inputs.gh_environment }}
+      tag: ${{ github.ref_name }}
+    secrets: inherit

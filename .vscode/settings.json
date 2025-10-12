@@ -1,0 +1,11 @@
+{
+  "cSpell.words": [
+    "denoland",
+    "dotenv",
+    "igorjs",
+    "JUSTFILE",
+    "justfiles"
+  ],
+  "explorer.sortOrder": "mixed",
+  "explorer.excludeGitIgnore": true
+}
