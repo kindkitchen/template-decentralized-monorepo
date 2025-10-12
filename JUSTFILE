@@ -11,6 +11,7 @@ import '.just/app.just'
 import '.just/home.just'
 import '.just/deno_test.just'
 import '.just/git_add_A_git_commit.just'
+import '.just/llm.just'
 
 alias v := version
 
