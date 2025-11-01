@@ -47,6 +47,11 @@ export async function llm_txt_from_all_md(options: {
   await std_fs.ensureFile(llm_txt_path);
 
   for (const chunk of llm_chunks) {
+    const filename = chunk.link.split("/").at(-1) || chunk.link;
+    if (filename.startsWith("_")) {
+      continue;
+    }
+
     await Deno.writeTextFile(
       llm_txt_path,
       `> [source](${chunk.link})\n\n` +
