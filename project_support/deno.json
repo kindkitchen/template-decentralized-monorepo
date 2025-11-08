@@ -6,5 +6,5 @@
     "@std/path": "jsr:@std/path@^1.1.2",
     "@std/regexp": "jsr:@std/regexp@^1.0.1"
   },
-  "version": "0.1.0-plopper"
+  "version": "0.1.0"
 }
