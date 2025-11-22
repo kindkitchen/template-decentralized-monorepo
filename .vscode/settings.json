@@ -4,7 +4,8 @@
     "dotenv",
     "igorjs",
     "JUSTFILE",
-    "justfiles"
+    "justfiles",
+    "plopper"
   ],
   "explorer.sortOrder": "mixed",
   "explorer.excludeGitIgnore": true

@@ -1,3 +1,6 @@
 [submodule "util_xstate"]
 	path = util_xstate
 	url = https://github.com/kindkitchen/util_xstate.git
+[submodule "util_plopper"]
+	path = util_plopper
+	url = https://github.com/kindkitchen/util_plopper.git

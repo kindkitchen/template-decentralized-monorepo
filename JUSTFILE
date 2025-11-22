@@ -16,7 +16,7 @@ import '.just/project_update_submodules.just'
 
 alias v := version
 
-JSON_FILES_WITH_VERSION := ""
+JSON_FILES_WITH_VERSION := "util_plopper/deno.json util_xstate.json project_support/deno.json"
 ROOT := justfile_directory()
 OPEN_FOLDER_IN_EDITOR := "code -r"
 
