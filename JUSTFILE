@@ -20,6 +20,7 @@ JSON_FILES_WITH_VERSION := "util_plopper/deno.json util_xstate.json project_supp
 ROOT := justfile_directory()
 OPEN_FOLDER_IN_EDITOR := "code -r"
 
+[script('bash')]
 _______________:
     just --list
 
