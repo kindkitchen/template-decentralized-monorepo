@@ -13,12 +13,22 @@ import '.just/deno_test.just'
 import '.just/git_add_A_git_commit.just'
 import '.just/llm.just'
 import '.just/project_update_submodules.just'
+import '.just/make_libs_real_in_app.just'
 
 alias v := version
 
-JSON_FILES_WITH_VERSION := "util_plopper/deno.json util_xstate.json project_support/deno.json"
+JSON_FILES_WITH_VERSION := '''\
+ util_plopper/deno.json\
+ util_xstate/deno.json\
+ project_support/deno.json\
+\
+\
+\
+\
+'''
 ROOT := justfile_directory()
 OPEN_FOLDER_IN_EDITOR := "code -r"
+GIT_LINK := "https://github.com/kindkitchen/hft/actions"
 
 [script('bash')]
 _______________:
@@ -27,3 +37,16 @@ _______________:
 [script('bash')]
 fmt:
     just --format
+
+# ## Helpers
+[script('bash')]
+pr *args:
+    set -e
+    just commit {{ args }}
+    git submodule foreach 'git push origin $(git branch --show-current)'
+    git push origin dev && gh pr create --fill-verbose && gh pr merge --auto --merge
+    git checkout main
+    git branch -D dev
+    git pull origin main
+    git checkout -b dev
+    echo "{{ GIT_LINK }}"
