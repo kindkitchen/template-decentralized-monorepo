@@ -9,9 +9,11 @@ const skip = [
 ].map((s) => new RegExp(s));
 export async function llm_txt_from_all_md(options: {
   root: string;
+  followSymlinks: boolean;
 }) {
   const {
     root,
+    followSymlinks,
   } = options;
   const llm_txt_path = std_path.join(root, "llm.txt");
   const llm_chunks = [];
@@ -22,7 +24,7 @@ export async function llm_txt_from_all_md(options: {
     } of std_fs.walk(root, {
       includeDirs: false,
       exts: [".md"],
-      followSymlinks: true,
+      followSymlinks,
       includeSymlinks: true,
       maxDepth: 10,
       skip,
@@ -67,7 +69,8 @@ export async function llm_txt_from_all_md(options: {
 if (import.meta.main) {
   const {
     root = Deno.cwd(),
-  } = std_cli.parseArgs(Deno.args, { string: ["root"] });
+    followSymlinks = false,
+  } = std_cli.parseArgs(Deno.args, { string: ["root"], boolean: ["followSymlinks"] });
 
-  await llm_txt_from_all_md({ root });
+  await llm_txt_from_all_md({ root, followSymlinks });
 }
