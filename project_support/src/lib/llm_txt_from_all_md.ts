@@ -18,6 +18,9 @@ export async function llm_txt_from_all_md(options: {
   const llm_txt_path = std_path.join(root, "llm.txt");
   const llm_chunks = [];
 
+  // Track visited real paths to avoid duplicate traversal via symlinks
+  const visited = new Set<string>();
+
   for await (
     const {
       path,
@@ -30,6 +33,18 @@ export async function llm_txt_from_all_md(options: {
       skip,
     })
   ) {
+    let realPath: string;
+    try {
+      realPath = await Deno.realPath(path);
+    } catch {
+      // If realPath fails (e.g., broken symlink), skip
+      continue;
+    }
+    if (visited.has(realPath)) {
+      continue;
+    }
+    visited.add(realPath);
+
     const content = await Deno.readTextFile(path);
     const deep = path.split("/").length;
     const link = std_path.relative(root, path);
