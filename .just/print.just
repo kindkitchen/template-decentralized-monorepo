@@ -6,7 +6,7 @@
 _:
 
 @print message="":
-    echo "{{ ITALIC + INVERT }} {{ message }} "
+    echo "{{ ITALIC + INVERT }} {{ message }} {{ NORMAL }}"
 
 @printInfo message="INFO":
     echo "{{ NORMAL }}{{ BG_GREEN }}____________{{ NORMAL }}"
